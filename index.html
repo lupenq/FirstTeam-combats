@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>chat</title>
+	<link rel="stylesheet" href="./src/style-chat.css">
+</head>
+<body>
+	<header>Поединок</header>
+	<section class="game">
+		<article class="player player-1">
+			<div class="player-health">progress</div>
+			<div class="player-img">
+				<img src="http://pre11.deviantart.net/a5fb/th/pre/f/2015/086/b/4/shy_vanilla_by_foreveremerald-d8ne7sh.png" alt="" style="height: 200px;">
+			</div>
+			<div class="player-stats">
+				<ul>
+					<li>сила</li>
+					<li>инта</li>
+					<li>ум</li>
+					<li>чет еще</li>
+				</ul>
+			</div>
+		</article>
+
+		<div class="fight-control">
+			<label class="attack radios" for="attack-type">
+				<span>attack</span>
+				<input type="radio" name="attack-type">
+				<input type="radio" name="attack-type">
+				<input type="radio" name="attack-type">
+				<input type="radio" name="attack-type">
+			</label>
+
+			<div class="send">
+				<button class="send-choise">ВПЕРЕД</button>
+			</div>
+
+			<label class="defence radios" for="defence-type">
+				<span>defend</span>
+				<input type="radio" name="defence-type">
+				<input type="radio" name="defence-type">
+				<input type="radio" name="defence-type">
+				<input type="radio" name="defence-type">
+			</label>
+		</div>
+
+		<article class="player player-2">
+			<div class="player-health">progress</div>
+			<div class="player-img">
+				<img src="http://pixelartmaker.com/art/7d528bd37e83bac.png" alt="" style="height: 200px;">
+			</div>
+			<div class="player-stats">
+				<ul>
+					<li>сила</li>
+					<li>инта</li>
+					<li>ум</li>
+					<li>чет еще</li>
+				</ul>
+			</div>
+		</article>
+	</section>
+
+	<section class="logs">
+		<div class="combat-logs">logs</div>
+	</section>
+
+
+	<span>Hello this is cool chat</span>
+	<section class="chat">
+		<div class="dialog">
+			
+		</div>
+
+		<div class="list-online">
+			
+		</div>
+
+		<form name="publish">
+			<textarea type="text" name="message" placeholder="Enter you message here"></textarea> 
+			<input type="submit" value="Send">
+		</form>
+	</section>
+
+<script>
+const baseUrl = 'http://localhost:3333/';
+
+fetch(baseUrl + "ping")
+    .then(response => response.text())
+    .then(message => {
+    	console.log(message);
+    });
+
+</script>
+</body>
+</html>
