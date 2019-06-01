@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>Combats</title>
+	<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <section class="container">
+    <div class="login">
+      <h1>Зарегистрироваться</h1>
+      <form method="post" class="formReg" action="/register">
+        <p><input class="login" type="text" name="username" value="" placeholder="Логин или Email"></p>
+        <p><input class="pass" type="password" name="password" value="" placeholder="Пароль"></p>
+        <p class="remember_me">
+          <label>
+            <input type="checkbox" name="remember_me" id="remember_me">
+            Запомнить меня
+          </label>
+        </p>
+        <p class="submit"><input type="submit" name="commit" value="Регистрация"></p>
+      </form>
+    </div>
+
+    <div class="login-help">
+      Уже есть аккаунт? <a href="/auth.html">Войти</a>
+    </div>
+  </section>
+</body>
+<script link='../js/register.js'></script>
+</html>
