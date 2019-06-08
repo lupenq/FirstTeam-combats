@@ -1,0 +1,107 @@
+.bodyContainer
+{
+    font-family: Arial,sans-serif;
+    font-size: 10pt;
+    display: flex;
+    flex-direction: column;
+}
+
+hr
+{
+    margin: 0;
+	color: #e3e3e3;
+}
+
+.mainContainer
+{
+    display: flex;
+    flex: 3 1 500px;
+    border: 1px solid #D3D3D3;
+}
+
+.containerHero, .containerEnemy
+{
+    width: 25%;
+    border: 1px solid #D3D3D3;
+}
+
+.containerFight
+{
+    width: 50%;
+    border: 1px solid #D3D3D3;
+}
+
+.attackBlock, .protectionBlock
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.margins
+{
+    margin: 5px 0;
+}
+
+p
+{
+    text-align: center;
+}
+
+.buttleForm
+{
+    display: flex;
+    justify-content: space-around;
+}
+
+.buttonGo
+{
+    display: flex;
+    justify-content: center;
+}
+
+.footerContainer
+{
+    display: flex;
+    flex: 1 1 250px;
+    border: 1px solid #D3D3D3;
+}
+
+.searchForOnlineUsers
+{
+    width: 100%;
+    height: 30px;
+}
+
+.button
+{
+    border: 1px solid #D3D3D3;
+    background-color: white;
+    border-radius: 3px;
+}
+
+.buttonGoStyle
+{
+    width: 70px;
+    height: 30px;
+}
+
+.containerChat
+{
+    width: 75%;
+}
+
+.onlineContainer
+{
+    width: 25%;
+    border: 1px solid #D3D3D3;
+    
+}
+.listOfUsers
+{
+    list-style-type: none;
+    padding-left: 20px;
+}
+.fightlogo
+{
+    height: 13px;
+}
