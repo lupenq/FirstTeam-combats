@@ -2,7 +2,7 @@
 <head>
     <meta charset="utf-8">
     <title>Бойцовский клуб</title>
-    <link rel="stylesheet" href="styleForMP.css">
+    <link rel="stylesheet" href="/css/styleForMP.css">
 </head>
 <body class="bodyContainer">
     <main class="mainContainer">
@@ -46,6 +46,14 @@
             <ul class="listOfUsers"></ul>
         </div>
     </footer>
-<script src="onlineUsers.js"></script>
+<script src="/js/onlineUsers.js"></script>
+<script>
+    var xhr = new XMLHttpRequest();
+            
+    var body = 'token=' + localStorage.getItem('token');
+    xhr.open("POST", '/fight', true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.send(body);
+</script>
 </body>
 

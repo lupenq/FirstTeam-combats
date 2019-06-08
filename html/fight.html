@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Fight</title>
+</head>
+<body>
+    <button class="findOponent">Найти соперника</button>
+</body>
+    <script>
+        const findOponentButton = document.querySelector('.findOponent');
+        findOponentButton.addEventListener('click', function() {
+            var xhr = new XMLHttpRequest();
+            
+            var body = 'token=' + localStorage.getItem('token');
+            xhr.open("POST", '/fight', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.send(body);
+
+            xhr.onload = function() {
+                if(JSON.parse(xhr.responseText).combat.status === 'pending') {
+
+                    const params =  'token=' + localStorage.getItem('token') +
+                    '&combat_id=' + JSON.parse(xhr.responseText).combat.id;
+
+                    setInterval(function(){
+                        let xhrStatus = new XMLHttpRequest();
+                        xhrStatus.open("GET", '/status?' + params, true);
+                        xhrStatus.send();
+                        console.log(xhrStatus.responseText);
+                        xhrStatus.onload = function () {
+                            if(JSON.parse(xhrStatus.responseText).combat.status === 'progress') {
+                                document.location.href = 'http://localhost:3333/auth.html';
+                            }
+                        }
+                    }, 2000)
+                }
+            }
+        });
+        
+    </script>
+</html>
