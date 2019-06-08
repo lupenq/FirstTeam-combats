@@ -88,6 +88,32 @@ p
 .containerChat
 {
     width: 75%;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.chatLog, .chatForm
+{
+    width: 100%;
+}
+
+.chatLog
+{
+    height: 90%;
+    overflow-y: scroll;
+}
+
+.chatInput
+{
+    height: 25px;
+    margin-left: 5px;
+    width: 90%; 
+}
+
+.chatForm
+{
+    display: flex;
 }
 
 .onlineContainer
