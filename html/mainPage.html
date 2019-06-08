@@ -2,7 +2,7 @@
 <head>
     <meta charset="utf-8">
     <title>Бойцовский клуб</title>
-    <link rel="stylesheet" href="/css/styleForMP.css">
+    <link rel="stylesheet" href="./css/styleForMP.css">
 </head>
 <body class="bodyContainer">
     <main class="mainContainer">
@@ -40,24 +40,19 @@
     </main>
     <footer class="footerContainer">
         <div class="containerChat">
+            <div class="chatLog">
+                <ul class="chatMessages"></ul>
+            </div>
+            <form method="POST" action="/chat" class="chatForm">
+                <input name="message" type="text" placeholder="Введите ваше сообщение" class="chatInput">
+                <button type="submit" class="chatButton button">Отправить</button>            
+            </form>
         </div>
         <div class="onlineContainer">
             <button class="searchForOnlineUsers button">Обновить</button>
             <ul class="listOfUsers"></ul>
         </div>
     </footer>
-<<<<<<< HEAD
-<script src="/js/onlineUsers.js"></script>
-<script>
-    var xhr = new XMLHttpRequest();
-            
-    var body = 'token=' + localStorage.getItem('token');
-    xhr.open("POST", '/fight', true);
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhr.send(body);
-</script>
-=======
 <script src="./js/onlineUsers.js"></script>
->>>>>>> f55cc5fbf4dcff70b3c9f28c92ae8bdffe4f66f8
+<script src="chat.js"></script>
 </body>
-
