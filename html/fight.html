@@ -29,16 +29,20 @@
                         let xhrStatus = new XMLHttpRequest();
                         xhrStatus.open("GET", '/status?' + params, true);
                         xhrStatus.send();
-                        console.log(xhrStatus.responseText);
                         xhrStatus.onload = function () {
+                            localStorage.setItem("combat_id", JSON.parse(xhrStatus.responseText).combat.id)
                             if(JSON.parse(xhrStatus.responseText).combat.status === 'progress') {
-                                document.location.href = 'http://localhost:3333/auth.html';
+                                document.location.href = 'http://localhost:3333/mainPage.html';
                             }
                         }
-                    }, 2000)
+                    }, 1500)
+                }
+
+                if(JSON.parse(xhr.responseText).combat.status === 'progress') {
+                    localStorage.setItem("combat_id", JSON.parse(xhr.responseText).combat.id);
+                    document.location.href = 'http://localhost:3333/mainPage.html';
                 }
             }
         });
-        
     </script>
 </html>

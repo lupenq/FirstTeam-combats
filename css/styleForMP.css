@@ -107,8 +107,8 @@ p
 .chatInput
 {
     height: 25px;
-    margin-left: 5px;
-    width: 90%; 
+    width: 95%; 
+    margin-top: 10px;
 }
 
 .chatForm
@@ -127,7 +127,37 @@ p
     list-style-type: none;
     padding-left: 20px;
 }
-.fightlogo
+.callFight
 {
     height: 13px;
 }
+
+.chatMessages {
+    list-style-type: none;
+    max-height: 175px;
+}
+
+  /* Progress Bar */
+  
+  .progress-bar {
+    width: 80%;
+    background-color: #e0e0e0;
+    padding: 3px;
+    border-radius: 3px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, .2);
+  }
+  
+  .progress-bar-fill {
+    display: block;
+    height: 22px;
+    background-color: #34A853;
+    border-radius: 3px;
+    transition: width 500ms ease-in-out;
+  }
+  .progressEnemy .progress-bar-fill {
+      background-color: #EA4335;
+  }
+
+  .progressEnemy, .progressHero {
+    margin:20px auto 0 auto;
+  }

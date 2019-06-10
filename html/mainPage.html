@@ -6,7 +6,11 @@
 </head>
 <body class="bodyContainer">
     <main class="mainContainer">
-        <div class="containerHero"></div>
+        <div class="containerHero">
+                <div class="progress-bar progressHero">
+                        <span class="progress-bar-fill" style="width: 100%"></span>
+                </div>
+        </div>
         <div class="containerFight">
             <div>
                 <form method="POST">
@@ -27,7 +31,7 @@
                         </div>
                     </div>
                     <div class="buttonGo margins"> 
-                        <button class="button buttonGoStyle" type="submit">Вперед!!</button>
+                        <button class="button buttonGoStyle turnButton" type="submit">Вперед!!</button>
                     </div>
                 </form>
             </div>
@@ -36,23 +40,29 @@
 
             </div>
         </div>
-        <div class="containerEnemy"></div>
+        <div class="containerEnemy">
+                <div class="progress-bar progressEnemy">
+                        <span class="progress-bar-fill" style="width: 100%"></span>
+                </div>
+        </div>
     </main>
     <footer class="footerContainer">
-        <div class="containerChat">
-            <div class="chatLog">
-                <ul class="chatMessages"></ul>
+            <div class="containerChat">
+                <div class="chatLog">
+                    <ul class="chatMessages"></ul>
+                </div>
+                <form method="POST" action="/chat" class="chatForm">
+                    <input name="message" type="text" placeholder="Введите ваше сообщение" class="chatInput">
+                    <button type="submit" class="chatButton button">Отправить</button>            
+                </form>
             </div>
-            <form method="POST" action="/chat" class="chatForm">
-                <input name="message" type="text" placeholder="Введите ваше сообщение" class="chatInput">
-                <button type="submit" class="chatButton button">Отправить</button>            
-            </form>
-        </div>
-        <div class="onlineContainer">
-            <button class="searchForOnlineUsers button">Обновить</button>
-            <ul class="listOfUsers"></ul>
-        </div>
-    </footer>
-<script src="./js/onlineUsers.js"></script>
-<script src="chat.js"></script>
+            <div class="onlineContainer">
+                <button class="searchForOnlineUsers button">Обновить</button>
+                <ul class="listOfUsers"></ul>
+            </div>
+        </footer>
+<script src="/js/onlineUsers.js"></script>
+<script src="/js/mainPage.js"></script>
+<script src="./js/chat.js"></script>
 </body>
+
