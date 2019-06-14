@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Бойцовский клуб</title>
     <link rel="stylesheet" href="./css/styleForMP.css">
 </head>
@@ -12,32 +14,35 @@
                 </div>
         </div>
         <div class="containerFight">
-            <div>
-                <form method="POST">
-                    <div class="buttleForm">
-                        <div class="attackBlock">
-                            <p>Атака</p>
-                            <div class="margins"><input name="attack" type="radio" value="1"><label>удар в голову</label></div>
-                            <div class="margins"><input name="attack" type="radio" value="2"><label>удар в корпус</label></div>
-                            <div class="margins"><input name="attack" type="radio" value="3"><label>удар в пояс</label></div>
-                            <div class="margins"><input name="attack" type="radio" value="4"><label>удар по ногам</label></div>
+            <div class="ghost_block">
+                <button class="findOponent button style_findOponent">Найти соперника</button>
+                <div class="hide">
+                    <form method="POST">
+                        <div class="buttleForm">
+                            <div class="attackBlock">
+                                <p>Атака</p>
+                                <div class="margins"><input name="attack" type="radio" value="1"><label>удар в голову</label></div>
+                                <div class="margins"><input name="attack" type="radio" value="2"><label>удар в корпус</label></div>
+                                <div class="margins"><input name="attack" type="radio" value="3"><label>удар в пояс</label></div>
+                                <div class="margins"><input name="attack" type="radio" value="4"><label>удар по ногам</label></div>
+                            </div>
+                            <div class="protectionBlock">
+                                <p>Защита</p>
+                                <div class="margins"><input name="protection" type="radio" value="1"><label>блок головы и корпуса</label></div>
+                                <div class="margins"><input name="protection" type="radio" value="2"><label>блок корпуса и пояса</label></div>
+                                <div class="margins"><input name="protection" type="radio" value="3"><label>блок пояса и ног</label></div>
+                                <div class="margins"><input name="protection" type="radio" value="4"><label>блок головы и ног</label></div>
+                            </div>
                         </div>
-                        <div class="protectionBlock">
-                            <p>Защита</p>
-                            <div class="margins"><input name="protection" type="radio" value="1"><label>блок головы и корпуса</label></div>
-                            <div class="margins"><input name="protection" type="radio" value="2"><label>блок корпуса и пояса</label></div>
-                            <div class="margins"><input name="protection" type="radio" value="3"><label>блок пояса и ног</label></div>
-                            <div class="margins"><input name="protection" type="radio" value="4"><label>блок головы и ног</label></div>
+                        <div class="buttonGo margins"> 
+                            <button class="button buttonGoStyle turnButton" type="submit">Вперед!!</button>
                         </div>
-                    </div>
-                    <div class="buttonGo margins"> 
-                        <button class="button buttonGoStyle turnButton" type="submit">Вперед!!</button>
-                    </div>
-                </form>
-            </div>
-            <hr noshade size="1">
-            <div class="logsBlock">
-
+                    </form>
+                </div>
+                <hr noshade size="1">
+                <div class="logsBlock">
+                    <ul class="fight-logs"></ul>
+                </div>
             </div>
         </div>
         <div class="containerEnemy">
@@ -57,12 +62,11 @@
                 </form>
             </div>
             <div class="onlineContainer">
-                <button class="searchForOnlineUsers button">Обновить</button>
                 <ul class="listOfUsers"></ul>
             </div>
         </footer>
 <script src="/js/onlineUsers.js"></script>
 <script src="/js/mainPage.js"></script>
 <script src="./js/chat.js"></script>
+<script src="./js/fight.js"></script>
 </body>
-
