@@ -114,6 +114,7 @@ p{
     flex-direction: column;
     border: 1px solid #D3D3D3;
     border-top-width: 0;
+    border-bottom-width: 0;
 }
 
 .chatLog, .chatForm{
@@ -130,11 +131,14 @@ p{
     width: 95%; 
     margin-top: 10px;
     box-sizing: border-box;
+    border: 1px solid #D3D3D3;
+    border-left-width: 0;
 }
 
 .chatButton{
     height: 35px;
     margin-left: -1px;
+    border-right-width: 0;
 }
 
 .chatForm{
@@ -154,7 +158,7 @@ p{
     list-style-type: none;
     padding-left: 20px;
 }
-.callFight{
+.infoAboutUser{
     height: 10px;
 }
 
