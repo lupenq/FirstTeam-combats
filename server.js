@@ -3,6 +3,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const app = express();
 const port = 3333;
+const path = require('path');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
@@ -18,3 +19,7 @@ app.use('/js', express.static('js'));
 app.use('/css', express.static('css'));
 app.use('/img', express.static('img'));
 app.use('/json', express.static('json'));
+
+// app.get('/', function (req, res) {
+//     res.sendFile(path.join('html/auth.html'));
+//  });

@@ -1,2 +1,20 @@
 [
+    {
+        "id": "GccvIW",
+        "status": "pending",
+        "players": [
+            {
+                "id": "7Bty4s",
+                "token": "QbVKTPohke",
+                "username": "anton",
+                "last_active": 1561201754686,
+                "health": 30
+            }
+        ],
+        "turns": [
+            []
+        ],
+        "results": [],
+        "turn_start": 1561201754691
+    }
 ]
