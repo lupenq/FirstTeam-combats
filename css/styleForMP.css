@@ -191,5 +191,24 @@ p{
   }
 
   .progressEnemy, .progressHero {
-    margin:20px auto 0 auto;
+    margin:30px auto 0 auto;
+  }
+
+  .progressEnemy.hide {
+      display:none;
+  }
+
+  .hero-name, .enemy-name {
+      text-align:center;
+      transform:translateY(17px);
+  }
+
+  .hp-value {
+    position: absolute;
+    right: 10px;
+    top: 8px;
+  }
+
+  .progressEnemy, .progressHero {
+    position: relative;
   }

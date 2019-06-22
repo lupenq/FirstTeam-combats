@@ -1,12 +1,33 @@
 const turnButton = document.querySelector('.turnButton');
 const progressEnemy =  document.querySelector('.progressEnemy .progress-bar-fill');
 const progressHero = document.querySelector('.progressHero .progress-bar-fill');
+const heroName = document.querySelector('.hero-name');
+const heroHpValue = document.querySelector('.progressHero .hp-value');
+const enemyHpValue = document.querySelector('.progressEnemy .hp-value');
+
+document.addEventListener("DOMContentLoaded", ready);
+
+function ready() {
+    let xhrGetName = new XMLHttpRequest();
+
+    xhrGetName.open('GET', '/whoami' + '?token=' + localStorage.getItem('token'));
+    xhrGetName.send();
+    xhrGetName.onload = function() {
+        heroName.innerHTML = JSON.parse(xhrGetName.responseText).user.username;
+    }
+    progressEnemy.parentElement.classList.add('hide');
+
+    heroHpValue.innerHTML = '30/30';
+    enemyHpValue.innerHTML = '30/30';
+    heroHpValue.style.position = 'absolute';
+}
 
 turnButton.addEventListener('click', function(e) {
     e.preventDefault();
 
     let atackRadio = document.querySelector('input[name=attack]:checked');
     let defenseRadio = document.querySelector('input[name=protection]:checked');
+    
     let makeTurn = false;
     let resultLength, battleIndex, heroIndex, enemyIndex;
 
@@ -34,9 +55,13 @@ turnButton.addEventListener('click', function(e) {
         if(makeTurn === true) {
             heroHealth = parseTurnQuery.combat.you.health / 30 * 100 + '%';
             enemyHealth = parseTurnQuery.combat.enemy.health / 30 * 100 + '%';
-
             progressHero.style.width = heroHealth;
             progressEnemy.style.width = enemyHealth;
+            heroHpValue.innerHTML = parseTurnQuery.combat.you.health + '/30';
+            enemyHpValue.innerHTML = parseTurnQuery.combat.enemy.health + '/30';
+
+            console.log(parseTurnQuery.combat.status);
+
             return;
         }
 
@@ -52,10 +77,8 @@ turnButton.addEventListener('click', function(e) {
             xhrDatabase.send();
 
             xhrDatabase.onload = function() {
-
                 parseDatabase = JSON.parse(xhrDatabase.response);
                 battleIndex = findButtleIndex(parseDatabase, localStorage.getItem('combat_id'));
-                console.log(battleIndex);
                 currentToken = parseDatabase[battleIndex].players[0].token;
                 curentResultLength = parseDatabase[battleIndex].turns.length;
 
@@ -74,13 +97,34 @@ turnButton.addEventListener('click', function(e) {
                 enemyHealth = parseDatabase[battleIndex].
                 players[enemyIndex].health / 30 * 100 + '%';
                 makeTurn = parseTurnQuery.combat.turn_status || false;
-            
-                if(makeTurn === true || resultLength + 2 == curentResultLength) {
-                    clearInterval(timer);
-                }
+                heroHpValue.innerHTML = parseDatabase[battleIndex].players[heroIndex].health + '/30';
+                enemyHpValue.innerHTML = parseDatabase[battleIndex].players[enemyIndex].health + '/30';
 
                 progressHero.style.width = heroHealth;
                 progressEnemy.style.width = enemyHealth;
+
+                if(parseDatabase[battleIndex].status === 'finished') {
+                    let enemyHP = parseDatabase[battleIndex].players[enemyIndex].health;
+                    let heroHP = parseDatabase[battleIndex].players[heroIndex].health;
+                    if(enemyHP <= 0 && heroHP > 0) {
+                        fight_logs.innerHTML += 
+                        `<li>Победа! ${heroName.innerText} одолел ${enemyName.innerHTML} c
+                        ${heroHP} hp</li>`;
+                    }
+                    else if (enemyHP > 0 && heroHP <= 0) {
+                        fight_logs.innerHTML +=
+                        `<li>Поражение! ${enemyName.innerHTML} одолел ${heroName.innerText} c
+                        ${enemyHP} hp</li>`;
+                    }
+                    else {
+                        fight_logs.innerHTML += '<li>Ничья!</li>';
+                    }
+                    clearInterval(timer);
+                }
+                
+                if(makeTurn === true || resultLength + 2 == curentResultLength) {
+                    clearInterval(timer);
+                }
             }
         }, 2000);
     }   

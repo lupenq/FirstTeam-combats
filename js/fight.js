@@ -1,6 +1,7 @@
 const findOponentButton = document.querySelector('.findOponent');
 const hide = document.querySelector('.hide');
 const fight_logs = document.querySelector('.fight-logs');
+const enemyName = document.querySelector('.enemy-name');
 
 findOponentButton.addEventListener('click', function() {
     const xhr = new XMLHttpRequest();
@@ -29,7 +30,10 @@ findOponentButton.addEventListener('click', function() {
                         //document.location.href = 'http://localhost:3333/mainPage.html';
                         hide.classList.remove("hide");
                         findOponentButton.classList.add("hide");
+                        progressEnemy.parentElement.classList.remove('hide');
+                        fight_logs.innerHTML += '<li>Противник найден!</li>';
                         clearInterval(timer);
+                        enemyName.innerHTML = JSON.parse(xhrStatus.responseText).combat.enemy.username;
                     }
                 }
             }, 1500)
@@ -38,8 +42,10 @@ findOponentButton.addEventListener('click', function() {
         if(JSON.parse(xhr.responseText).combat.status === 'progress') {
             localStorage.setItem("combat_id", JSON.parse(xhr.responseText).combat.id);
             //document.location.href = 'http://localhost:3333/mainPage.html';
+            enemyName.innerHTML = JSON.parse(xhr.responseText).combat.players[0].username;
             hide.classList.remove("hide");
             findOponentButton.classList.add("hide");
+            progressEnemy.parentElement.classList.remove('hide');
         }
     }
 });
