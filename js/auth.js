@@ -1,7 +1,7 @@
-  const buttonSubmit = document.querySelector('.submit input');
-  const nameField = document.querySelector('input.login');
-  const passwordField = document.querySelector('input.pass');
-  const formLog = document.querySelector('.formLog');
+  var buttonSubmit = document.querySelector('.submit input');
+  var nameField = document.querySelector('input.login');
+  var passwordField = document.querySelector('input.pass');
+  var formLog = document.querySelector('.formLog');
 
   formLog.addEventListener('submit', function(e) { 
     e.preventDefault();
