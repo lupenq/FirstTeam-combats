@@ -12,9 +12,11 @@ module.exports = {
     get(timestamp) {
         this.init();
 
-        if (!timestamp) timestamp = + new Date() - 600 * 1000;
+        //if (!timestamp) timestamp = + new Date() - 6000 * 1000;
 
-        return this._chat.filter(message => message.timestamp > timestamp);
+        //return this._chat.filter(message => message.timestamp > timestamp);
+
+        return this._chat;
     },
 
     post(text, user) {
