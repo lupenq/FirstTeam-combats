@@ -15,6 +15,9 @@
     "random-hash": "^4.0.1"
   },
   "devDependencies": {
+    "eslint": "^6.0.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.17.3",
     "nodemon": "^1.17.4"
   }
 }
