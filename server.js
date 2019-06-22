@@ -17,3 +17,4 @@ app.use(express.static('html'));
 app.use('/js', express.static('js'));
 app.use('/css', express.static('css'));
 app.use('/img', express.static('img'));
+app.use('/json', express.static('json'));
