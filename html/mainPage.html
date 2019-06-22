@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Бойцовский клуб</title>
     <link rel="stylesheet" href="./css/styleForMP.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
+
 </head>
 <body class="bodyContainer">
     <main class="mainContainer">
@@ -39,10 +41,10 @@
                         </div>
                     </form>
                 </div>
-            </div>
-            <hr noshade size="1">
-            <div class="logsBlock">
-                <ul class="fight-logs"></ul>
+                <hr noshade size="1">
+                <div class="logsBlock">
+                    <ul class="fight-logs"></ul>
+                </div>
             </div>
         </div>
         <div class="containerEnemy">
@@ -56,7 +58,7 @@
                 <div class="chatLog">
                     <ul class="chatMessages"></ul>
                 </div>
-                <form method="POST" action="/chat" class="chatForm">
+                <form method="POST" action="/chat" class="chatForm"  autocomplete="off">
                     <input name="message" type="text" placeholder="Введите ваше сообщение" class="chatInput">
                     <button type="submit" class="chatButton button">Отправить</button>            
                 </form>

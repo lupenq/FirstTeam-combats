@@ -10,7 +10,7 @@ function templateChat(data) {
 
     return `
    <li class="message">
-   <span>[${prettyDate(date)}] </span><span class="chatUsername">${name}</span>: <span class="textMessage">${msg}</span>
+   <span>[${prettyDate(date)}] </span><span class="chatUsername"><b>${name}</b></span>: <span class="textMessage">${msg}</span>
    </li>
    `;
 }
@@ -40,10 +40,12 @@ function callXHRget() {
             html += templateChat(messageData);
             return html;
         }, '');
+        
 
     }
 
 }
+
 
 function prettyDate(date) {
     return `${zeros(date.getHours())}:${zeros(date.getMinutes())}:${zeros(date.getSeconds())}`;
@@ -69,3 +71,9 @@ function callXHRpost() {
         }
     })
 }
+
+
+window.setInterval(function() {
+    var elem = document.querySelector('.chatLog');
+    elem.scrollTop = elem.scrollHeight;
+  }, 5000);

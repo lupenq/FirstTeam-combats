@@ -2,6 +2,7 @@ html,body {
     margin: 0;
     height: 100%;
     /* overflow: hidden; */
+    font-family: 'Roboto', sans-serif !important;
 }
 .bodyContainer{
     font-family: Arial,sans-serif;
@@ -29,7 +30,6 @@ hr{
 .hide
 {
     visibility: collapse;
-    display:none;
 } 
 
 .ghost_block
@@ -166,6 +166,7 @@ p{
 .chatMessages {
     list-style-type: none;
     max-height: 175px;
+    font-size: 15px;
 }
 
   /* Progress Bar */
