@@ -4,7 +4,9 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon -i ./json server.js"
+    "start": "nodemon -i ./json server.js",
+    "gulp": "gulp",
+    "minify": "gulp minify"
   },
   "author": "",
   "license": "ISC",
@@ -15,9 +17,18 @@
     "random-hash": "^4.0.1"
   },
   "devDependencies": {
-    "eslint": "^6.0.0",
-    "eslint-config-airbnb": "^17.1.0",
-    "eslint-plugin-import": "^2.17.3",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^6.1.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-rigger": "^0.5.8",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify": "^3.0.2",
+    "gulp-uglify-es": "^1.0.4",
+    "gulp-watch": "^5.0.1",
     "nodemon": "^1.17.4"
   }
 }
