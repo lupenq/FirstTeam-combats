@@ -2,6 +2,7 @@ const findOponentButton = document.querySelector('.findOponent');
 const hide = document.querySelector('.hide');
 const fight_logs = document.querySelector('.fight-logs');
 const enemyName = document.querySelector('.enemy-name');
+const fightLogs = document.querySelector('.fightLogs');
 
 findOponentButton.addEventListener('click', function() {
     const xhr = new XMLHttpRequest();
@@ -15,7 +16,7 @@ findOponentButton.addEventListener('click', function() {
 
         if(JSON.parse(xhr.responseText).combat.status === 'pending') {
 
-            fight_logs.innerHTML = '<li>Ожидание противника</li>';
+            fightLogs.innerHTML = '<li class="log">Ожидание противника</li>';
 
             const params =  'token=' + localStorage.getItem('token') +
             '&combat_id=' + JSON.parse(xhr.responseText).combat.id;

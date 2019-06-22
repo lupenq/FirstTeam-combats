@@ -27,6 +27,11 @@ hr{
     padding-bottom: 0;
 }
 
+.log{
+    list-style-type: none;
+    padding-left: 20px;
+}
+
 .hide
 {
     visibility: collapse;
@@ -42,7 +47,7 @@ hr{
 
 .style_findOponent
 {
-    margin-top: 100px;
+    margin-top: 90px;
     height: 30px;
     border-radius: 3px;
 }

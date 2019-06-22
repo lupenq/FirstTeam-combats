@@ -1,6 +1,7 @@
 const turnButton = document.querySelector('.turnButton');
 const progressEnemy =  document.querySelector('.progressEnemy .progress-bar-fill');
 const progressHero = document.querySelector('.progressHero .progress-bar-fill');
+
 const heroName = document.querySelector('.hero-name');
 const heroHpValue = document.querySelector('.progressHero .hp-value');
 const enemyHpValue = document.querySelector('.progressEnemy .hp-value');
@@ -21,6 +22,9 @@ function ready() {
     enemyHpValue.innerHTML = '30/30';
     heroHpValue.style.position = 'absolute';
 }
+
+const logsOfFight = document.querySelector('.fightLogs');
+let i = 0;
 
 turnButton.addEventListener('click', function(e) {
     e.preventDefault();
@@ -45,7 +49,14 @@ turnButton.addEventListener('click', function(e) {
     xhr.onload = function() {
 
         let parseTurnQuery = JSON.parse(xhr.response);
+
         resultLength = parseTurnQuery.combat.results.length;
+
+        if(resultLength !== 0){
+            logsOfFight.innerHTML += `<li class="log">${parseTurnQuery.combat.results[0][i].origin.username} нанес удар 
+            ${parseTurnQuery.combat.results[0][i].target.username} на ${parseTurnQuery.combat.results[0][i].hit} hp</li>` ;
+            i++;
+        }
         
         makeTurn = parseTurnQuery.combat.turn_status || false;
 
@@ -102,6 +113,7 @@ turnButton.addEventListener('click', function(e) {
 
                 progressHero.style.width = heroHealth;
                 progressEnemy.style.width = enemyHealth;
+
 
                 if(parseDatabase[battleIndex].status === 'finished') {
                     let enemyHP = parseDatabase[battleIndex].players[enemyIndex].health;
