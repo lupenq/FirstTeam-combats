@@ -29,6 +29,7 @@ hr{
 .hide
 {
     visibility: collapse;
+    display:none;
 } 
 
 .ghost_block
